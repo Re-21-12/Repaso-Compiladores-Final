@@ -1,0 +1,27 @@
+t1 = 5
+t2 = 3
+t3 = 2
+a = t1
+b = t2
+c = t3
+
+t4 = a > b
+if t4 goto L1
+goto L2
+
+L1:
+t5 = a + b
+t6 = t5 * c
+t7 = a / b
+t8 = c * c
+t9 = t6 - t7
+t10 = t9 + t8
+result = t10
+goto L3
+
+L2:
+t11 = b - c
+t12 = t11 / a
+result = t12
+
+L3:

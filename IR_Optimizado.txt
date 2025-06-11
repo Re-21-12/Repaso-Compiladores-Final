@@ -1,0 +1,20 @@
+t1 = 5 > 3      ; true
+if t1 goto L1
+goto L2
+
+L1:
+t2 = 5 + 3      ; 8
+t3 = 8 * 2      ; 16
+t4 = 5 / 3      ; 1 (entero)
+t5 = 2 * 2      ; 4
+t6 = 16 - 1     ; 15
+t7 = 15 + 4     ; 19
+result = 19
+goto L3
+
+L2:
+t8 = 3 - 2      ; 1
+t9 = 1 / 5      ; 0 (entero)
+result = 0
+
+L3:
