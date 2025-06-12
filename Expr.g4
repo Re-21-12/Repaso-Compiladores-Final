@@ -1,6 +1,6 @@
 grammar Language;
 
-program: 'main' START_KEY block FINAL_KEY EOF;
+program: 'main' sbk EOF;
 
 block: sentence*;
 
@@ -12,13 +12,17 @@ sentence: declaration ';'
 
 sef: START_PARETNHESES expression FINAL_PARENTHESIS;
 sbk: START_KEY block FINAL_KEY;
+eq: EQUAL expression;
+iq: ID eq;
 
-declaration: type ID ('=' expression)?;
+declaration: type ID (eq)?;
 
-assignment: ID '=' expression;
+assignment: iq;
+assignment: iq expression;
 
 ifStatement: IF sef sbk
-           (ELSE sbk)?;
+        |   (ELSE IF sef sbk)*     
+        |   (ELSE sbk)?;
 
 printStatement: PRINT sef;
 
@@ -45,3 +49,4 @@ MAIN: 'main';
 PRINT: 'print';
 IF: 'if';
 ELSE: 'else';
+EQUAL = '=';
