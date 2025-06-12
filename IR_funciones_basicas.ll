@@ -69,11 +69,14 @@ L3:
 ; si venimos de L1, usa %valor1; si venimos de L2, usa %valor2
 
 ; ========== TIPOS BÁSICOS ==========
-; i1    - booleano (1 bit)
+; ENTEROS
 ; i8    - byte (8 bits)
 ; i16   - short (16 bits)
 ; i32   - int (32 bits)
 ; i64   - long (64 bits)
+; FLOTANTES
 ; float - flotante 32 bits
 ; double - flotante 64 bits
+; OTROS
 ; void  - sin retorno
+; i1    - booleano (1 bit)

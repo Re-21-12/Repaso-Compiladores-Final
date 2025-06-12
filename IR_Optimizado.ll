@@ -9,16 +9,23 @@ entry:
   %c = alloca i32
   %result = alloca i32
   
-  ; t1 = 5, t2 = 3, t3 = 2
-  store i32 5, i32* %t1
-  store i32 3, i32* %t2
-  store i32 2, i32* %t3
+  ; escribe en memoria
+  store i32 5, i32* %t1 ; t1 = 5
+  store i32 3, i32* %t2 ; t2 = 3
+  store i32 2, i32* %t3 ; t3 = 2
+
+  ; lee los valores de t1, t2, t3 y los almacena en a, b, c
   
-  ; a = t1, b = t2, c = t3
+  ; a = t1
+  ; Crea un temporal %1 y carga el t1 luego asigna el valor de %1 a a
   %1 = load i32, i32* %t1
   store i32 %1, i32* %a
+
+  ; b = t2, c = t3
   %2 = load i32, i32* %t2
   store i32 %2, i32* %b
+  
+  ; c = t3
   %3 = load i32, i32* %t3
   store i32 %3, i32* %c
   
@@ -30,9 +37,9 @@ entry:
 
 L1:
   ; t5 = a + b
-  %6 = load i32, i32* %a
-  %7 = load i32, i32* %b
-  %t5 = add i32 %6, %7
+  %6 = load i32, i32* %a ; t6 = a
+  %7 = load i32, i32* %b ; t7 = b
+  %t5 = add i32 %6, %7 ; t5 = t6 + t7 
   
   ; t6 = t5 * c
   %8 = load i32, i32* %c
@@ -71,6 +78,7 @@ L2:
   br label %L3
 
 L3:
+ ; result = 
   %16 = load i32, i32* %result
   ret i32 %16
 }
